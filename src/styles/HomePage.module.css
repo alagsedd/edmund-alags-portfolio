@@ -1,0 +1,116 @@
+.main {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.devInfo {
+    background-color: rgb(57, 79, 90);
+    padding: 0.5rem;
+    height: auto;
+}
+.devInfo span {
+    color: aqua;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.motherMotherPicBox {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.picBox {
+    border-radius: 49% 51% 47% 53% / 61% 53% 47% 39%  ;
+    height: 17rem;
+    width: 17rem;
+}
+
+.imageOne {
+    border-radius: 49% 51% 47% 53% / 61% 53% 47% 39%  ;
+    height: 17rem;
+    width: 100%;
+    object-fit: cover;
+}
+.skillsSum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.skillsCard span {
+    color: aqua;
+    font-weight: 500;
+    letter-spacing: 0.01rem;
+}
+.skillsCard {
+    background-color: rgb(57, 79, 90);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.skillsSumPic {
+    width: 100%;
+    object-fit: cover;
+    height: 15rem;
+}
+.convinceBox {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+ 
+}
+.convinceBox span {
+    color: aqua;
+    font-weight: 500;
+    letter-spacing: 0.01rem;
+    font-size: 1.2rem;
+}
+.convinceBox p {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(57, 79, 90);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.realityPic {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
+.achievementsBox {
+    background-color: rgb(57, 79, 90);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+.achievementsBox span {
+    color: aqua;
+    font-weight: 500;
+}
+.fastContactBox {
+    width: 15rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(57, 79, 90);
+}
+.fastContactBox span {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0.5rem;
+}
+.socialIcons {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon {
+    transition:  box-shadow 0.7s 0.3s;
+}
+.icon:hover {
+    box-shadow: 0 0 10px aqua;
+}

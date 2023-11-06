@@ -1,0 +1,47 @@
+.nav {
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    background-color: rgba(39,49,58,255);
+}
+.logoBox {
+    margin-right: 0.9%;
+    margin-left: 0.9%;
+}
+.logoImage {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+}
+.brandNameBox {
+    margin-right: 10%;
+}
+.brandName {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.01rem;
+}
+.ul {
+    padding: 0.3rem;
+    background-color: rgb(19, 48, 62);
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.link {
+    text-decoration: none;
+}
+.ul li {
+    padding: 0.3rem;
+    transition:  background-color 0.7s 0.2s, border-radius 0.7s 0.2s;
+}
+.ul li:hover {
+    border-radius: 5px;
+    background-color: rgb(255, 0, 136);
+}
+.ul2 {
+    display: none;
+}
