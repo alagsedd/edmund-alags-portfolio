@@ -6,7 +6,8 @@
     align-items: center;
 }
 .devInfo {
-    background-color: rgb(57, 79, 90);
+    border-radius: 10px;
+    background-color: #0d2136;
     padding: 0.5rem;
     height: auto;
 }
@@ -14,6 +15,7 @@
     color: aqua;
     font-weight: 500;
     font-size: 1.3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .motherMotherPicBox {
@@ -28,6 +30,22 @@
     border-radius: 49% 51% 47% 53% / 61% 53% 47% 39%  ;
     height: 17rem;
     width: 17rem;
+    box-shadow: 0 0 10px aqua;
+    animation: bounce 2s infinite ease-in-out;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(10px);
+    }
+    20% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    0% {
+        transform: translateY(10px);
+    }
 }
 
 .imageOne {
@@ -49,7 +67,8 @@
     letter-spacing: 0.01rem;
 }
 .skillsCard {
-    background-color: rgb(57, 79, 90);
+    border-radius: 10px;
+    background-color: #0d2136;
     padding: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -59,8 +78,13 @@
     height: 15rem;
 }
 .convinceBox {
+    background-color: #0d2136;
+    border-radius: 10px;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
  
 }
 .convinceBox span {
@@ -72,7 +96,6 @@
 .convinceBox p {
     display: flex;
     flex-direction: row;
-    background-color: rgb(57, 79, 90);
     padding: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -82,7 +105,8 @@
     object-fit: cover;
 }
 .achievementsBox {
-    background-color: rgb(57, 79, 90);
+    border-radius: 10px;
+    background-color: #0d2136;
     margin-bottom: 1rem;
     padding: 0.5rem;
 }
@@ -91,13 +115,14 @@
     font-weight: 500;
 }
 .fastContactBox {
+    border-radius: 10px;
     width: 15rem;
     font-weight: 500;
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(57, 79, 90);
+    background-color: #0d2136;
 }
 .fastContactBox span {
     border-bottom: 1px solid #fff;
@@ -113,4 +138,183 @@
 }
 .icon:hover {
     box-shadow: 0 0 10px aqua;
+}
+.link {
+    color: yellow;
+}
+
+@media screen and (min-width: 600px) {
+    .devInfo {
+        width: 90%;
+    }
+    .devInfo span {
+        font-size: 1.7rem;
+    }
+    .skillsSum {
+        width: 90%;
+    }
+    .skillsSum span {
+        font-size: 1.7rem;
+    }
+    .skillsSumPic {
+        width: 60%;
+    }
+    .convinceBox {
+        width: 90%;
+    }
+    .convinceBox span {
+        font-size: 1.7rem;
+    }
+    .realityPic {
+        width: 60%;
+    }
+    .achievementsBox  span {
+        font-size: 1.7rem;
+    }
+}
+@media screen and (min-width: 900px) {
+   .main {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows:  auto auto auto;
+    place-items: center center;
+   }
+   .realityPic {
+    display: none;
+   }
+   .skillsSumPic {
+    display: none;
+   }
+   .devInfo {
+    grid-column: 1 / 3;
+    width: 23rem;
+   }
+   .devInfo p {
+    font-size: 1.1rem;
+   }
+   .motherMotherPicBox {
+    grid-column: 3 / -1;
+   }
+   .imageOne {
+    width: 30rem;
+    height: 33rem;
+   }
+   .picBox {
+    width: 30rem;
+    height: 33rem;
+   }
+   .skillsSum {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    height: 10rem;
+   }
+   .convinceBox {
+    grid-column: 1 / 4;
+    grid-row: 3 / -1;
+   }
+   .fastContactBox {
+    grid-column: 3 / -1;
+    grid-row: 3 / -1;
+    margin-left: 15rem;
+   }
+   
+   .achievementsBox {
+    grid-column: 3 / -1;
+    height: 10rem;
+    width: 30rem;
+   }
+   .achievementsBox span {
+    font-size: 1.2rem;
+   }
+   .skillsSum span {
+    font-size: 1.2rem;
+   }
+   .convinceBox span {
+    font-size: 1.2rem;
+   }
+   .convinceBox p {
+    font-size: 1.1rem;
+   }
+
+   .skillsSum p {
+    font-size: 1.1rem;
+   }
+}
+
+@media screen and (min-width: 1000px) {
+    .main {
+        padding: 0 2rem;
+    }
+    .devInfo {
+        width: 27rem;
+        height: 15rem;
+    }
+    .achievementsBox {
+        width: 30rem;
+        height: 10rem;
+    }
+
+    .skillsCard {
+        height: 10rem;
+        width: 30rem;
+    }
+    .convinceBox {
+        grid-column: 1  /3;
+    }
+    .fastContactBox {
+        grid-column: 2 / -1;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .main {
+        padding: 0 0rem;
+    }
+    .devInfo span {
+        height: 40rem;
+        font-size: 2rem;
+    }
+    .skillsCard {
+        width: 34rem;
+    }
+    .devInfo p {
+        font-size: 1.2rem;
+        height: 40rem;
+    }
+    .devInfo  {
+        height: 20rem;
+        width: 30rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .devInfo {
+        width: 40rem;
+        padding: 1.5rem;
+    }
+    .skillsCard {
+        width: 40rem;
+    }
+    .skillsSum p {
+        font-size: 1.2rem;
+    }
+    .convinceBox {
+        width: 40rem;
+    }
+    .achievementsBox p {
+        font-size: 1.2rem;
+    }
+    .convinceBox p {
+        font-size: 1.2rem;
+    }
+    .main {
+        margin: 0 0 ;
+        padding: 0 0 ;
+        column-gap: 1.6rem;
+    }
+    .motherMotherPicBox {
+        margin-right: 3rem;
+    }
 }

@@ -2,21 +2,25 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 
 interface Props {
-  projectDetails: string;
+  gameDetails: string;
 }
-const ExpandableText = ({ projectDetails }: Props) => {
+const ExpandableText = ({ gameDetails }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const trimmed =
-    projectDetails.length > 30 && !isExpanded
-      ? projectDetails.slice(0, 100) + " ..."
-      : projectDetails;
+    gameDetails.length > 30 && !isExpanded
+      ? gameDetails.slice(0, 100) + " ..."
+      : gameDetails;
 
   return (
     <div>
       <p className="m-3">
         {trimmed}
-        <Button onClick={() => setIsExpanded(!isExpanded)} variant="outlined">
+        <Button
+          size="small"
+          onClick={() => setIsExpanded(!isExpanded)}
+          variant="outlined"
+        >
           {isExpanded ? "Show less" : "Show more"}
         </Button>
       </p>

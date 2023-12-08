@@ -3,6 +3,8 @@ import Layout from "../components/Layout";
 import ErrorPage from "../pages/ErrorPage";
 import HomePage from "../HomePage";
 import Projects from "../components/Projects";
+import SkillsPage from "../pages/SkillsPage";
+import AboutMe from "../pages/AboutMe";
 
 const router = createBrowserRouter([
   {
@@ -11,10 +13,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      // { path: "about", element: <AboutMe /> },
+      { path: "about", element: <AboutMe /> },
       { path: "projects", element: <Projects /> },
-      // { path: "hire-me", element: <HireMe /> },
-      // { path: "skills", element: <SkillsPage /> },
+      { path: "skills", element: <SkillsPage /> },
     ],
   },
 ]);

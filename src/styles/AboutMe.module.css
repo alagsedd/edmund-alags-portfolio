@@ -1,0 +1,125 @@
+.parent {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.partOne {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.partTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.partThree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.partFour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.headerOne {
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: center;
+}
+.headerTwo {
+    margin-bottom: 1rem;
+}
+.headerTwo span {
+    color: aqua;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0.5rem;
+}
+.headerOne span {
+    letter-spacing: 0.01rem;
+    color: aqua;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #fff;
+}
+.color {
+    color: yellow;
+}
+.p1 {
+    width: 100%;
+    background-color: #0d2136;
+    margin-bottom: 1rem;
+    padding: 0.2rem;
+}
+.image {
+    filter: contrast(110%);
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+.ul {
+    padding: 0.3rem;
+    background-color: #0d2136;
+    margin-bottom: 1rem;
+}
+.ul li {
+    margin: 1rem;
+}
+
+@media screen and (min-widtH: 500px) {
+    .headerOne span {
+        font-size: 1.7rem;
+    }
+    .headerTwo span {
+        font-size: 1.5rem;
+    }
+    .p1 {
+        padding: 0.5rem;
+    }
+    .ul li {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .image {
+        width: 20rem;
+        height: 20rem;
+    }
+    .parent {
+        padding: 1rem;
+        border: 0.1px solid #fff;
+        margin: 0rem 3rem;
+    }
+    .image {
+        width: 22rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .parent {
+        padding: 1rem;
+        margin: 0 7rem;
+    }
+    .ul {
+        padding: 2rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .parent {
+        margin: 0 11rem;
+    }
+}

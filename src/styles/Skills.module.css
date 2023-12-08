@@ -1,0 +1,93 @@
+.body {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.image {
+    width: 17rem;
+    height: 13rem;
+    object-fit: cover;
+}
+.headerOne {
+    margin-bottom: 0.3rem;
+}
+.headerOne span {
+    color: aqua;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #fff;
+}
+.color {
+    color: yellow;
+}
+.introText {
+    margin-bottom: 1rem;
+}
+.skillOne {
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.skillOne span {
+    color: yellow;
+    font-size: 1.2rem;
+}
+.skillTwo {
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.skillTwo span {
+    color: yellow;
+    font-size: 1.2rem;
+}
+.skillTwo p {
+    margin-bottom: 1rem;
+}
+.skillThree {
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.skillThree span {
+    color: yellow;
+    font-size: 1.2rem;
+}
+.imageBox {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 460px) {
+    .image {
+        width: 23rem;
+        height: 16rem;
+    }
+}
+@media screen and (min-width: 600px) {
+    .body {
+        padding: 1rem;
+        border: 1px solid #fff;
+        margin:  0 2rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .headerOne span {
+        font-size: 2rem;
+    }
+    .body {
+        margin:  0 10rem;
+    }
+    .image {
+        width: 30rem;
+        height: 20rem;
+    }
+}

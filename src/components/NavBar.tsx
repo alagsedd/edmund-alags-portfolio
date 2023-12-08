@@ -13,11 +13,13 @@ const NavBar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.logoBox}>
-        <img
-          src={logo}
-          alt="Logo of Alag's brand"
-          className={styles.logoImage}
-        />
+        <Link to={"/"}>
+          <img
+            src={logo}
+            alt="Logo of Alag's brand"
+            className={styles.logoImage}
+          />
+        </Link>
       </div>
 
       <div className={styles.brandNameBox}>
@@ -25,7 +27,7 @@ const NavBar = () => {
       </div>
 
       <div className={styles.menuContainer}>
-        {menuVisible && screenWidth <= 800 ? (
+        {menuVisible && screenWidth <= 600 ? (
           <ul className={styles.ul}>
             <li>
               <AiFillCloseCircle
@@ -55,15 +57,11 @@ const NavBar = () => {
                 Projects
               </Link>
             </li>
-            <li>
-              <Link className={styles.link} to={"/hire-me"}>
-                Hire me
-              </Link>
-            </li>
           </ul>
         ) : (
           <div className={styles.menu}>
             <GiHamburgerMenu
+              className={styles.menu}
               onClick={() => {
                 setMenuVisible(true);
               }}
@@ -91,11 +89,6 @@ const NavBar = () => {
           <li>
             <Link className={styles.link} to={"/projects"}>
               Projects
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.link} to={"/hire-me"}>
-              Hire me
             </Link>
           </li>
         </ul>

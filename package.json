@@ -14,13 +14,16 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.17",
     "@tanstack/react-query": "4.28",
+    "aos": "^2.3.4",
     "axios": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.18.0",
+    "vercel": "^32.3.0"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

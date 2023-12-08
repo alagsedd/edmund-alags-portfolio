@@ -7,11 +7,18 @@ import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
 import { RiTwitterXLine } from "react-icons/ri";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomePage = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <main className={styles.main}>
-      <div className={styles.devInfo}>
+      <div data-aos="fade-right" className={styles.devInfo}>
         <span>I am Edmund, a Web developer.</span>{" "}
         <p>
           I have a specialization in web development, and this website serves as
@@ -19,6 +26,9 @@ const HomePage = () => {
           encourage you to explore each section to gain a full understanding of
           my capabilities.{" "}
         </p>
+        <Link className={styles.link} to={"projects"}>
+          view my projects now
+        </Link>
       </div>
 
       <div className={styles.motherMotherPicBox}>
@@ -27,12 +37,15 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className={styles.skillsSum}>
+      <div data-aos="fade-left" className={styles.skillsSum}>
         <div className={styles.skillsCard}>
           <span>My skills...</span>
           <p>
             I possess strong expertise in a range of programming languages and
             technologies, including React, TypeScript, JavaScript, and Python...{" "}
+            <Link className={styles.link} to={"skills"}>
+              Read more
+            </Link>{" "}
           </p>{" "}
         </div>
         <img
@@ -42,7 +55,7 @@ const HomePage = () => {
         />
       </div>
 
-      <div className={styles.convinceBox}>
+      <div data-aos="fade-up-right" className={styles.convinceBox}>
         <span> Let's Make Your Ideas a Reality:</span>
         <p>
           I'm not just a developer; I'm a problem solver, a creative thinker,
@@ -60,7 +73,7 @@ const HomePage = () => {
         />
       </div>
 
-      <div className={styles.achievementsBox}>
+      <div data-aos="fade-up-left" className={styles.achievementsBox}>
         <span>Achievements and Certifications:</span>
         <p>
           <strong>CodeWithMosh Certifications</strong>: Completed multiple
