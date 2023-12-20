@@ -44,6 +44,7 @@
     transition:  background-color 0.7s 0.2s, border-radius 0.7s 0.2s;
 }
 .ul li:hover {
+    padding: 0 0.5rem;
     border-radius: 5px;
     background-color: rgb(255, 0, 136);
 }
@@ -51,7 +52,7 @@
     display: none;
 }
 .ul2 li {
-    
+    padding: 0 0.5rem;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 500;
     transition:  background-color 0.7s 0.2s, border-radius 0.7s 0.2s;

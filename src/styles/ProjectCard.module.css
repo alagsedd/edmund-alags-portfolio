@@ -2,6 +2,7 @@
     width: 85%;
     margin: 1rem;
     transition:  border 0.6s 0.3s ;
+    /* height: auto; */
 }
 .card:hover {
     border: 1px solid #fff;
@@ -12,7 +13,7 @@
     border-bottom: 0.2px solid #fff;
 }
 .info {
-    background-color: #26435a;
+    border: 1px solid #0d2136;
     padding: 0.5rem;
     height: auto;
 }
@@ -26,8 +27,8 @@
 @media screen and (min-width: 600px) {
     .card {
         width: 15rem;
-        border: 0.1px solid #fff;
-        height: 30rem;
+        border: 0.1px solid  #0d2136;
+        height: auto;
     }
 }
 
@@ -48,8 +49,8 @@
     }
     .info {
         padding: 0.5rem;
-        background-color: #26435a;
-        height: 13rem;
+        border: 1px solid #0d2136;
+        height: auto;
     }
     .title {
         color: yellow;

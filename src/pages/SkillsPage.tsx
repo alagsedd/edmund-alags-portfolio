@@ -167,11 +167,7 @@ const SkillsPage = () => {
             </ol>
           </div>
 
-          <div
-            data-aos="fade-up"
-            data-aos-anchor-placement="center-center"
-            className={styles.one}
-          >
+          <div className={styles.one}>
             <img src={colla} alt="React image" className={styles.image} />
           </div>
         </div>

@@ -21,9 +21,11 @@ const ProjectCard = ({ details, title, video, poster, linkToGame }: Props) => {
 
       <div className={styles.info}>
         <span className={styles.title}>{title}</span>
-        <p>
+
+        <div>
           <ExpandableText gameDetails={details} />
-        </p>
+        </div>
+
         <p>
           You can preview the site here{" "}
           <Link className={styles.link} to={linkToGame} target="_blank">

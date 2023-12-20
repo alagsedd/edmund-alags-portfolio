@@ -7,12 +7,13 @@ import v5 from "../assets/videos/chat demo.mp4";
 import v6 from "../assets/videos/sneaker vid.mp4";
 import gameposter from "../assets/images/game poster.png";
 import chatposter from "../assets/images/chat pic.avif";
+import bikesAppPoster from "../assets/images/bikes-app-poster.png";
 import movieposter from "../assets/images/movie-poster.jpg";
 import foodposter from "../assets/images/pngtree-fried-chicken-wings-on-a-black-plate-picture-image_2662983.jpg";
 import foodapp from "../assets/videos/food app demo.mp4";
 import adviceposter from "../assets/images/advice-poster.jpg";
 import signupPoster from "../assets/images/sign-up-poster.jpg";
-import sneakerposter from "../assets/images/sneaker poster.jpeg";
+import sneakerposter from "../assets/images/sneaker poster .jpeg";
 import ProjectCard from "../cards/ProjectCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -86,6 +87,14 @@ const Projects = () => {
       linkToGame: "https://sneaker-ecommerce-app-sooty.vercel.app/",
       poster: sneakerposter,
     },
+    {
+      id: 8,
+      title: "Sneaker sales",
+      details: "A responsive sneaker app",
+      video: v6,
+      linkToGame: "https://sneaker-ecommerce-app-sooty.vercel.app/",
+      poster: bikesAppPoster,
+    },
   ];
   return (
     <>
@@ -116,9 +125,11 @@ const Projects = () => {
             a glimpse of what I can bring to the table.
           </p>
         </div>
+
         <h3 data-aos="flip-up" className={styles.headerTwo}>
           <span>Hope you like them!</span>
         </h3>
+
         <div data-aos="fade-down-left" className={styles.projectsBox}>
           {projects.map((project) => (
             <ProjectCard
