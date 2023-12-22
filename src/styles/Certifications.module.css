@@ -1,0 +1,43 @@
+.image {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.5rem;
+}
+.cert1 {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cert2 {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (min-width: 500px) {
+    .image {
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+    .cert1 {
+        margin-bottom: 2rem;
+    }
+    .cert2 {
+        margin: 2rem;
+    }
+}
+@media screen and (min-width: 800px) {
+    .parent {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .image {
+        width: 25rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+}

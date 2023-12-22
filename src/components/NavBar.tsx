@@ -1,99 +1,99 @@
 import styles from "../styles/NavBar.module.css";
-import logo from "../assets/images/logo.jpg";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { IoIosCloseCircle } from "react-icons/io";
+import { FaHome } from "react-icons/fa";
+import { GiSkills } from "react-icons/gi";
+import { FaInfo } from "react-icons/fa6";
+import { GiSuitcase } from "react-icons/gi";
+import { MdOutlineVerified } from "react-icons/md";
+
 import { useState } from "react";
 
 const NavBar = () => {
-  const [menuVisible, setMenuVisible] = useState(false);
-  const screenWidth = window.innerWidth;
+  const [showDropMenu, setDropMenu] = useState(false);
 
-  console.log(`Screen Width: ${screenWidth}px`);
   return (
-    <nav className={styles.nav}>
-      <div className={styles.logoBox}>
-        <Link to={"/"}>
-          <img
-            src={logo}
-            alt="Logo of Alag's brand"
-            className={styles.logoImage}
-          />
-        </Link>
-      </div>
-
-      <div className={styles.brandNameBox}>
-        <span className={styles.brandName}>Alags</span>
-      </div>
-
-      <div className={styles.menuContainer}>
-        {menuVisible && screenWidth <= 600 ? (
-          <ul className={styles.ul}>
-            <li>
-              <AiFillCloseCircle
-                onClick={() => {
-                  setMenuVisible(false);
-                }}
-                size="30"
-              />
-            </li>
-            <li>
-              <Link className={styles.link} to={"/"}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to={"/skills"}>
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to={"/about"}>
-                About me
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to={"/projects"}>
-                Projects
-              </Link>
-            </li>
-          </ul>
-        ) : (
-          <div className={styles.menu}>
-            <GiHamburgerMenu
-              className={styles.menu}
-              onClick={() => {
-                setMenuVisible(true);
-              }}
-              size="30"
-            />
-          </div>
-        )}
-
-        <ul className={styles.ul2}>
+    <>
+      <nav className={styles.nav}>
+        <div className={styles.brandNameBox}>
+          <span>Alags</span>
+        </div>
+        <ul className={styles.horizontalUl}>
           <li>
             <Link className={styles.link} to={"/"}>
-              Home
+              <FaHome className={styles.icon} size="20" /> Home
             </Link>
           </li>
           <li>
             <Link className={styles.link} to={"/skills"}>
-              Skills
+              <GiSkills className={styles.icon} size="20" /> Skills
             </Link>
           </li>
           <li>
             <Link className={styles.link} to={"/about"}>
-              About me
+              <FaInfo className={styles.icon} size="20" /> About me
             </Link>
           </li>
           <li>
             <Link className={styles.link} to={"/projects"}>
-              Projects
+              <GiSuitcase className={styles.icon} size="20" /> Projects
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to={"/certifications"}>
+              <MdOutlineVerified className={styles.icon} /> Certifications
             </Link>
           </li>
         </ul>
-      </div>
-    </nav>
+
+        <div className={styles.menuBox}>
+          {showDropMenu ? (
+            <IoIosCloseCircle
+              className={styles.icon}
+              onClick={() => setDropMenu(false)}
+              size="25"
+            />
+          ) : (
+            <GiHamburgerMenu
+              onClick={() => setDropMenu(true)}
+              className={styles.icon}
+              size="25"
+            />
+          )}
+        </div>
+      </nav>
+
+      {showDropMenu && (
+        <ul className={styles.verticalUl}>
+          <li>
+            <Link className={styles.link} to={"/"}>
+              <FaHome className={styles.icon} /> Home
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to={"/skills"}>
+              <GiSkills className={styles.icon} /> Skills
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to={"/about"}>
+              <FaInfo className={styles.icon} /> About me
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to={"/projects"}>
+              <GiSuitcase className={styles.icon} /> Projects
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to={"/certifications"}>
+              <MdOutlineVerified className={styles.icon} /> Certifications
+            </Link>
+          </li>
+        </ul>
+      )}
+    </>
   );
 };
 

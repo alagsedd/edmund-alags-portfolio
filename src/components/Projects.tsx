@@ -5,6 +5,7 @@ import v3 from "../assets/videos/advice finished.mp4";
 import v4 from "../assets/videos/news finished.mp4";
 import v5 from "../assets/videos/chat demo.mp4";
 import v6 from "../assets/videos/sneaker vid.mp4";
+import v7 from "../assets/videos/bike-video.mp4";
 import gameposter from "../assets/images/game poster.png";
 import chatposter from "../assets/images/chat pic.avif";
 import bikesAppPoster from "../assets/images/bikes-app-poster.png";
@@ -89,9 +90,10 @@ const Projects = () => {
     },
     {
       id: 8,
-      title: "Sneaker sales",
-      details: "A responsive sneaker app",
-      video: v6,
+      title: "Bike e-commerce app",
+      details:
+        "This is a passion project on two wheels: a fully responsive bikes ecommerce app built with React and secured by Firebase. Glide through curated bikes, refine your search with powerful filters, and checkout with a click, all wrapped in a sleek, modern interface. Secure logins and personalized recommendations put you in control, while the extensive bike database delivers your perfect match.",
+      video: v7,
       linkToGame: "https://sneaker-ecommerce-app-sooty.vercel.app/",
       poster: bikesAppPoster,
     },
