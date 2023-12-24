@@ -7,18 +7,32 @@ import colla from "../assets/images/colla.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useColorMode } from "@chakra-ui/react";
 
 const SkillsPage = () => {
+  const { colorMode } = useColorMode();
+
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
     <>
-      <div className={styles.body}>
+      <div
+        style={{
+          backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
+        }}
+        className={styles.body}
+      >
         {" "}
         <h1 data-aos="fade-left" className={styles.headerOne}>
-          <span>My skills</span>
+          <span
+            style={{
+              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
+            }}
+          >
+            My skills
+          </span>
         </h1>
         <p
           data-aos="fade-right"
@@ -26,7 +40,13 @@ const SkillsPage = () => {
           data-aos-easing="ease-in-sine"
           className={styles.introText}
         >
-          As a dedicated <span className={styles.color}>web developer</span>{" "}
+          As a dedicated{" "}
+          <span
+            style={{ color: `${colorMode === "light" ? "#2775ce" : "yellow"}` }}
+            className={styles.color}
+          >
+            web developer
+          </span>{" "}
           with a passion for continuous learning and growth, I bring a unique
           blend of technical skills and qualities that set me apart. My
           proficiency extends to a range of programming languages and
@@ -41,7 +61,14 @@ const SkillsPage = () => {
           className={styles.skillOne}
         >
           <div className={styles.two}>
-            <span className={styles.skillHeader}>1.React Proficiency:</span>
+            <span
+              style={{
+                color: `${colorMode === "light" ? "#2775ce" : "yellow"}`,
+              }}
+              className={styles.skillHeader}
+            >
+              1.React Proficiency:
+            </span>
             <p>
               I have strong proficiency in React, a highly popular JavaScript
               library. I specialize in creating dynamic and user-friendly
@@ -65,7 +92,12 @@ const SkillsPage = () => {
           className={styles.skillTwo}
         >
           <div className={styles.one}>
-            <span className={styles.skillHeader}>
+            <span
+              style={{
+                color: `${colorMode === "light" ? "#2775ce" : "yellow"}`,
+              }}
+              className={styles.skillHeader}
+            >
               2.TypeScript Proficiency:
             </span>
             <p>
@@ -93,7 +125,12 @@ const SkillsPage = () => {
           className={styles.skillOne}
         >
           <div className={styles.two}>
-            <span className={styles.skillHeader}>
+            <span
+              style={{
+                color: `${colorMode === "light" ? "#2775ce" : "yellow"}`,
+              }}
+              className={styles.skillHeader}
+            >
               3.RESTful API Integration:
             </span>
             <p>
@@ -114,7 +151,12 @@ const SkillsPage = () => {
           className={styles.skillTwo}
         >
           <div className={styles.one}>
-            <span className={styles.skillHeader}>
+            <span
+              style={{
+                color: `${colorMode === "light" ? "#2775ce" : "yellow"}`,
+              }}
+              className={styles.skillHeader}
+            >
               4.TypeScript Proficiency:
             </span>
             <p>
@@ -137,7 +179,14 @@ const SkillsPage = () => {
           className={styles.skillOne}
         >
           <div className={styles.two}>
-            <span className={styles.skillHeader}>Qualities & Attributes:</span>
+            <span
+              style={{
+                color: `${colorMode === "light" ? "#2775ce" : "yellow"}`,
+              }}
+              className={styles.skillHeader}
+            >
+              Qualities & Attributes:
+            </span>
             <ol style={{ margin: "0.7rem" }}>
               <li>
                 Hard Work: A strong work ethic and dedication to meeting project

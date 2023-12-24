@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.17",
+    "@chakra-ui/react": "^2.8.2",
     "@tanstack/react-query": "4.28",
     "aos": "^2.3.4",
     "axios": "^1.6.0",
+    "framer-motion": "^10.16.16",
+    "npm": "^10.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",

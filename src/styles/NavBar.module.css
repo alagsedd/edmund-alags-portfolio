@@ -2,18 +2,18 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid  #0d2136;
+    background-color: #1f3042;
     margin: 0.2rem;margin-bottom: 1rem;
     padding: 0.3rem 0.6rem;
 }
 .icon:hover {
-    cursor: pointer;
+cursor: pointer;
 }
 .horizontalUl {
     display: none;
 }
 .verticalUl  {
-    border: 1px solid  #0d2136;
+    border: 1px solid #586c82;
     display: flex;
     flex-direction: column;
     margin: 0.3rem;
@@ -22,7 +22,7 @@ nav {
     list-style-type: none;
     padding: 0.5rem;
     margin: 0.3rem;
-    background-color: #0d2136;
+    /* background-color: #1f3042; */
 }
 .verticalUl li:hover {
     background-color: rgb(212, 97, 159);
@@ -55,7 +55,7 @@ nav {
         margin-right: 0.9rem;
         margin-left: 1rem;
         font-weight: 500;
-        border: 1px solid #0d2136;
+        border: 1px solid #586c82;
         padding: 0.3rem;
         border-radius: 5px;
     }

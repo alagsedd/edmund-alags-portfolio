@@ -19,8 +19,11 @@ import ProjectCard from "../cards/ProjectCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useColorMode } from "@chakra-ui/react";
 
 const Projects = () => {
+  const { colorMode } = useColorMode();
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -94,7 +97,7 @@ const Projects = () => {
       details:
         "This is a passion project on two wheels: a fully responsive bikes ecommerce app built with React and secured by Firebase. Glide through curated bikes, refine your search with powerful filters, and checkout with a click, all wrapped in a sleek, modern interface. Secure logins and personalized recommendations put you in control, while the extensive bike database delivers your perfect match.",
       video: v7,
-      linkToGame: "https://sneaker-ecommerce-app-sooty.vercel.app/",
+      linkToGame: "https://alags-bikes.vercel.app/",
       poster: bikesAppPoster,
     },
   ];
@@ -102,10 +105,22 @@ const Projects = () => {
     <>
       <div className={styles.parent}>
         <h1 className={styles.headerOne}>
-          <span>Projects I have worked on</span>
+          <span
+            style={{
+              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
+            }}
+          >
+            Projects I have worked on
+          </span>
         </h1>
 
-        <div data-aos="fade-down-right" className={styles.introText}>
+        <div
+          style={{
+            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
+          }}
+          data-aos="fade-down-right"
+          className={styles.introText}
+        >
           <p>
             Welcome to my portfolio of projects! Here, I'm excited to share with
             you some of the work I've done and the projects I've been involved
@@ -129,7 +144,13 @@ const Projects = () => {
         </div>
 
         <h3 data-aos="flip-up" className={styles.headerTwo}>
-          <span>Hope you like them!</span>
+          <span
+            style={{
+              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
+            }}
+          >
+            Hope you like them!
+          </span>
         </h3>
 
         <div data-aos="fade-down-left" className={styles.projectsBox}>

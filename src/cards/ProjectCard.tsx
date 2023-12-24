@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styles from "../styles/ProjectCard.module.css";
 import ExpandableText from "../components/ExpandableText";
 
+import { useColorMode } from "@chakra-ui/react";
+
 interface Props {
   title: string;
   video: string;
@@ -10,6 +12,8 @@ interface Props {
   linkToGame: string;
 }
 const ProjectCard = ({ details, title, video, poster, linkToGame }: Props) => {
+  const { colorMode } = useColorMode();
+
   return (
     <div className={styles.card}>
       <video
@@ -20,7 +24,14 @@ const ProjectCard = ({ details, title, video, poster, linkToGame }: Props) => {
       ></video>
 
       <div className={styles.info}>
-        <span className={styles.title}>{title}</span>
+        <span
+          style={{
+            color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
+          }}
+          className={styles.title}
+        >
+          {title}
+        </span>
 
         <div>
           <ExpandableText gameDetails={details} />

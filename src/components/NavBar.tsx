@@ -7,39 +7,58 @@ import { GiSkills } from "react-icons/gi";
 import { FaInfo } from "react-icons/fa6";
 import { GiSuitcase } from "react-icons/gi";
 import { MdOutlineVerified } from "react-icons/md";
-
+import { useColorMode } from "@chakra-ui/react";
 import { useState } from "react";
+import ColorModeSwitch from "../ChakraUI/ColorModeSwitch";
 
 const NavBar = () => {
   const [showDropMenu, setDropMenu] = useState(false);
+  const { colorMode } = useColorMode();
 
   return (
     <>
-      <nav className={styles.nav}>
+      <nav
+        style={{
+          backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
+          color: `${colorMode === "light" ? "#6a7286" : "#fff"}`,
+        }}
+        className={styles.nav}
+      >
         <div className={styles.brandNameBox}>
-          <span>Alags</span>
+          <span
+            style={{
+              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
+            }}
+          >
+            Alags
+          </span>
         </div>
+
         <ul className={styles.horizontalUl}>
           <li>
             <Link className={styles.link} to={"/"}>
               <FaHome className={styles.icon} size="20" /> Home
             </Link>
           </li>
+
           <li>
             <Link className={styles.link} to={"/skills"}>
               <GiSkills className={styles.icon} size="20" /> Skills
             </Link>
           </li>
+
           <li>
             <Link className={styles.link} to={"/about"}>
               <FaInfo className={styles.icon} size="20" /> About me
             </Link>
           </li>
+
           <li>
             <Link className={styles.link} to={"/projects"}>
               <GiSuitcase className={styles.icon} size="20" /> Projects
             </Link>
           </li>
+
           <li>
             <Link className={styles.link} to={"/certifications"}>
               <MdOutlineVerified className={styles.icon} /> Certifications
@@ -65,7 +84,13 @@ const NavBar = () => {
       </nav>
 
       {showDropMenu && (
-        <ul className={styles.verticalUl}>
+        <ul
+          style={{
+            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
+            color: `${colorMode === "light" ? "#6a7286" : "#fff"}`,
+          }}
+          className={styles.verticalUl}
+        >
           <li>
             <Link className={styles.link} to={"/"}>
               <FaHome className={styles.icon} /> Home
@@ -81,11 +106,19 @@ const NavBar = () => {
               <FaInfo className={styles.icon} /> About me
             </Link>
           </li>
-          <li>
+
+          {/* <li>
             <Link className={styles.link} to={"/projects"}>
               <GiSuitcase className={styles.icon} /> Projects
             </Link>
+          </li> */}
+
+          <li>
+            <Link className={styles.link} to={"/projects"}>
+              Projects
+            </Link>
           </li>
+
           <li>
             <Link className={styles.link} to={"/certifications"}>
               <MdOutlineVerified className={styles.icon} /> Certifications
@@ -93,6 +126,8 @@ const NavBar = () => {
           </li>
         </ul>
       )}
+
+      <ColorModeSwitch />
     </>
   );
 };

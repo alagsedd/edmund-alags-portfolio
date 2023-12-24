@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import { useState } from "react";
+import { Button } from "@chakra-ui/react";
 
 interface Props {
   gameDetails: string;
@@ -9,17 +9,19 @@ const ExpandableText = ({ gameDetails }: Props) => {
 
   const trimmed =
     gameDetails.length > 30 && !isExpanded
-      ? gameDetails.slice(0, 100) + " ..."
+      ? gameDetails.slice(0, 30) + " ..."
       : gameDetails;
 
   return (
     <div>
       <p className="m-3">
         {trimmed}
+
         <Button
-          size="small"
           onClick={() => setIsExpanded(!isExpanded)}
-          variant="outlined"
+          variant="outline"
+          colorScheme="teal"
+          size="sm"
         >
           {isExpanded ? "Show less" : "Show more"}
         </Button>

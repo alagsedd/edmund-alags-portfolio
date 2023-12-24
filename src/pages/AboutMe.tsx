@@ -5,15 +5,22 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useColorMode } from "@chakra-ui/react";
 
 const AboutMe = () => {
+  const { colorMode } = useColorMode();
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
     <>
-      <div className={styles.parent}>
+      <div
+        style={{
+          backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
+        }}
+        className={styles.parent}
+      >
         <div data-aos="fade-right" className={styles.partOne}>
           <h1 className={styles.headerOne}>
             <span>About me</span>

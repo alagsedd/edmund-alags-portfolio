@@ -1,8 +1,8 @@
 import styles from "../styles/Certifications.module.css";
 import c1 from "../assets/certs/cert1.png";
 import c2 from "../assets/certs/cert2.png";
-import { Button } from "@mui/material";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import { Button } from "@chakra-ui/react";
 
 const Certifications = () => {
   return (
@@ -15,7 +15,11 @@ const Certifications = () => {
             className={styles.image}
           />
           <a download href="/src/assets/certs/1-react-18-for-beginners.pdf">
-            <Button startIcon={<FaCloudDownloadAlt />} variant="contained">
+            <Button
+              colorScheme="telegram"
+              leftIcon={<FaCloudDownloadAlt />}
+              variant="solid"
+            >
               Download Certificate
             </Button>
           </a>
@@ -31,7 +35,11 @@ const Certifications = () => {
             download
             href="/src/assets/certs/certificate-of-completion-for-react-18-for-beginners.pdf"
           >
-            <Button startIcon={<FaCloudDownloadAlt />} variant="contained">
+            <Button
+              colorScheme="telegram"
+              leftIcon={<FaCloudDownloadAlt />}
+              variant="solid"
+            >
               Download Certificate
             </Button>
           </a>
