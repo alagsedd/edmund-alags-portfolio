@@ -10,7 +10,7 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useColorMode } from "@chakra-ui/react";
+import { Button, useColorMode } from "@chakra-ui/react";
 
 const HomePage = () => {
   const { colorMode } = useColorMode();
@@ -19,9 +19,17 @@ const HomePage = () => {
     AOS.init();
   }, []);
 
+  const spanColor = colorMode === "light" ? "#0d5f79" : "#fff";
+
   return (
     <>
-      <main className={styles.main}>
+      <main
+        style={{
+          backgroundColor: `${colorMode === "light" ? "#fefeff" : "#1a212d"}`,
+          padding: "0.3rem",
+        }}
+        className={styles.main}
+      >
         <div
           style={{
             backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
@@ -46,8 +54,15 @@ const HomePage = () => {
             encourage you to explore each section to gain a full understanding
             of my capabilities.{" "}
           </p>
-          <Link className={styles.link} to={"projects"}>
-            view my projects now
+          <Link
+            style={{ color: spanColor }}
+            className={styles.link}
+            to={"projects"}
+          >
+            <Button m={2} colorScheme="messenger">
+              {" "}
+              view my projects now
+            </Button>
           </Link>
         </div>
 
@@ -93,7 +108,7 @@ const HomePage = () => {
               technologies, including React, TypeScript, JavaScript, and
               Python...{" "}
               <Link className={styles.link} to={"skills"}>
-                Read more
+                <Button colorScheme="messenger"> Read more</Button>
               </Link>{" "}
             </p>{" "}
           </div>

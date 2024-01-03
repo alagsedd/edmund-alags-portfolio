@@ -100,6 +100,15 @@ const Projects = () => {
       linkToGame: "https://alags-bikes.vercel.app/",
       poster: bikesAppPoster,
     },
+    {
+      id: 9,
+      title: "Medical lab app",
+      details:
+        "Presenting an agile web application leveraging Firebase's robust backend, enabling streamlined user authentication, hassle-free signup/login experiences, and secure data handling. This app ensures seamless registration and login functionalities, employing Firebase's reliable authentication mechanisms. Beyond user access, it showcases controlled admin privileges, allowing selective access for enhanced security and specific admin-oriented functionalities. With a sleek interface and efficient Firebase integration, this app sets the standard for modern, secure, and accessible authentication experiences.",
+      video: v7,
+      linkToGame: "https://alagpulinsa-lab.vercel.app/",
+      poster: bikesAppPoster,
+    },
   ];
   return (
     <>
