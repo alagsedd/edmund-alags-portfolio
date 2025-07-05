@@ -1,7 +1,5 @@
 import styles from "../src/styles/HomePage.module.css";
 import edd from "../src/assets/images/edd.jpeg";
-// import skillspic from "../src/assets/images/skills-pic.jpg"; // Keeping these commented as we'll use text/icons
-// import reality from "../src/assets/images/reality-pic.jpg"; // Keeping these commented as we'll use text/icons
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
@@ -10,7 +8,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Button, useColorMode } from "@chakra-ui/react";
-import { FaCode, FaLightbulb, FaAward } from "react-icons/fa"; // New icons for sections
+import { FaCode, FaLightbulb, FaAward } from "react-icons/fa";
 
 const HomePage = () => {
   const { colorMode } = useColorMode();
@@ -19,15 +17,13 @@ const HomePage = () => {
     AOS.init({
       duration: 1000,
       once: true,
-      easing: "ease-out-quad", // Smoother animation curve
+      easing: "ease-out-quad",
     });
   }, []);
 
-  // Updated background colors
-  const backgroundColor = colorMode === "light" ? "#f5f7ff" : "#121a26"; // Soft blueish light / Deep navy dark
-  const cardBackgroundColor = colorMode === "light" ? "#ffffff" : "#1a2236"; // Pure white / Dark blue-grey
-
-  // Keep your other color variables the same
+  // Color variables
+  const backgroundColor = colorMode === "light" ? "#f5f7ff" : "#121a26";
+  const cardBackgroundColor = colorMode === "light" ? "#ffffff" : "#1a2236";
   const primaryTextColor = colorMode === "light" ? "#2c3e50" : "#ecf0f1";
   const secondaryTextColor = colorMode === "light" ? "#7f8c8d" : "#bdc3c7";
   const accentColor = colorMode === "light" ? "#3498db" : "#00bcd4";
@@ -38,7 +34,7 @@ const HomePage = () => {
   const iconColor = colorMode === "light" ? "#3498db" : "#00bcd4";
 
   return (
-    <main className={styles.main} style={{ backgroundColor: backgroundColor }}>
+    <main className={styles.main} style={{ backgroundColor }}>
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent} data-aos="fade-right">
@@ -46,7 +42,7 @@ const HomePage = () => {
             Hi, I'm <span className={styles.highlight}>{`Edmund`}</span>.
           </h1>
           <p style={{ color: secondaryTextColor }}>
-            A passionate **Web Developer** crafting seamless and dynamic user
+            A passionate Web Developer crafting seamless and dynamic user
             experiences. Let's build something amazing together.
           </p>
           <Link to={"projects"}>
@@ -90,7 +86,7 @@ const HomePage = () => {
       <section className={styles.infoGrid}>
         <div
           className={styles.infoCard}
-          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow }}
           data-aos="fade-up"
         >
           <FaCode
@@ -100,8 +96,8 @@ const HomePage = () => {
           />
           <h2 style={{ color: primaryTextColor }}>My Skills</h2>
           <p style={{ color: secondaryTextColor }}>
-            I excel in modern web technologies including **React, TypeScript,
-            JavaScript, and Python**. I'm committed to building scalable and
+            I excel in modern web technologies including React, TypeScript,
+            JavaScript, and Python. I'm committed to building scalable and
             efficient solutions.
             <Link to={"skills"} className={styles.readMoreLink}>
               <Button
@@ -119,7 +115,7 @@ const HomePage = () => {
 
         <div
           className={styles.infoCard}
-          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow }}
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -131,14 +127,13 @@ const HomePage = () => {
           <h2 style={{ color: primaryTextColor }}>Let's Innovate</h2>
           <p style={{ color: secondaryTextColor }}>
             I'm a dedicated problem-solver and creative thinker. My goal is to
-            transform your digital aspirations into compelling realities. Let's
-            collaborate and achieve greatness.
+            transform your digital aspirations into compelling realities.
           </p>
         </div>
 
         <div
           className={styles.infoCard}
-          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow }}
           data-aos="fade-up"
           data-aos-delay="400"
         >
@@ -149,9 +144,8 @@ const HomePage = () => {
           />
           <h2 style={{ color: primaryTextColor }}>Achievements</h2>
           <p style={{ color: secondaryTextColor }}>
-            **CodeWithMosh Certifications**: Successfully completed multiple
+            CodeWithMosh Certifications: Successfully completed multiple
             advanced courses in Python, HTML & CSS, React, and JavaScript.
-            {/* Add a link to certificates here if available */}
           </p>
         </div>
       </section>
@@ -159,7 +153,7 @@ const HomePage = () => {
       {/* Contact Section */}
       <section
         className={styles.contactSection}
-        style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+        style={{ backgroundColor: cardBackgroundColor, boxShadow }}
         data-aos="zoom-in-up"
       >
         <h2 style={{ color: primaryTextColor }}>Connect With Me</h2>
