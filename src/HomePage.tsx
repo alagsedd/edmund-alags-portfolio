@@ -1,220 +1,203 @@
 import styles from "../src/styles/HomePage.module.css";
 import edd from "../src/assets/images/edd.jpeg";
-import skillspic from "../src/assets/images/skills-pic.jpg";
-import reality from "../src/assets/images/reality-pic.jpg";
+// import skillspic from "../src/assets/images/skills-pic.jpg"; // Keeping these commented as we'll use text/icons
+// import reality from "../src/assets/images/reality-pic.jpg"; // Keeping these commented as we'll use text/icons
 import { Link } from "react-router-dom";
-import { AiFillLinkedin } from "react-icons/ai";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
 import { RiTwitterXLine } from "react-icons/ri";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Button, useColorMode } from "@chakra-ui/react";
+import { FaCode, FaLightbulb, FaAward } from "react-icons/fa"; // New icons for sections
 
 const HomePage = () => {
   const { colorMode } = useColorMode();
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-out-quad", // Smoother animation curve
+    });
   }, []);
 
-  const spanColor = colorMode === "light" ? "#0d5f79" : "#fff";
+  // Updated background colors
+  const backgroundColor = colorMode === "light" ? "#f5f7ff" : "#121a26"; // Soft blueish light / Deep navy dark
+  const cardBackgroundColor = colorMode === "light" ? "#ffffff" : "#1a2236"; // Pure white / Dark blue-grey
+
+  // Keep your other color variables the same
+  const primaryTextColor = colorMode === "light" ? "#2c3e50" : "#ecf0f1";
+  const secondaryTextColor = colorMode === "light" ? "#7f8c8d" : "#bdc3c7";
+  const accentColor = colorMode === "light" ? "#3498db" : "#00bcd4";
+  const boxShadow =
+    colorMode === "light"
+      ? "0 4px 15px rgba(0, 0, 0, 0.08)"
+      : "0 4px 20px rgba(0, 0, 0, 0.3)";
+  const iconColor = colorMode === "light" ? "#3498db" : "#00bcd4";
 
   return (
-    <>
-      <main
-        style={{
-          backgroundColor: `${colorMode === "light" ? "#fefeff" : "#1a212d"}`,
-          padding: "0.3rem",
-        }}
-        className={styles.main}
-      >
-        <div
-          style={{
-            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          }}
-          data-aos="fade-right"
-          className={styles.devInfo}
-        >
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            I am Edmund, a Web developer.
-          </span>{" "}
-          <p
-            style={{
-              color: `${colorMode === "light" ? "#6a7286" : " #9aacc6"}`,
-            }}
-          >
-            I have a specialization in web development, and this website serves
-            as a comprehensive representation of my skills and experiences. I
-            encourage you to explore each section to gain a full understanding
-            of my capabilities.{" "}
+    <main className={styles.main} style={{ backgroundColor: backgroundColor }}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroContent} data-aos="fade-right">
+          <h1 style={{ color: primaryTextColor }}>
+            Hi, I'm <span className={styles.highlight}>{`Edmund`}</span>.
+          </h1>
+          <p style={{ color: secondaryTextColor }}>
+            A passionate **Web Developer** crafting seamless and dynamic user
+            experiences. Let's build something amazing together.
           </p>
-          <Link
-            style={{ color: spanColor }}
-            className={styles.link}
-            to={"projects"}
-          >
-            <Button m={2} colorScheme="messenger">
-              {" "}
-              view my projects now
+          <Link to={"projects"}>
+            <Button
+              size="lg"
+              colorScheme="messenger"
+              className={styles.projectsButton}
+              style={{
+                borderColor: accentColor,
+                backgroundColor: accentColor,
+                color: "#fff",
+              }}
+            >
+              View My Work
             </Button>
           </Link>
         </div>
 
-        <div className={styles.motherMotherPicBox}>
+        <div className={styles.profileImageContainer} data-aos="zoom-in">
           <div
-            style={{
-              boxShadow: `${
-                colorMode === "light" ? "0 0 3px #808993" : "0 0 10px aqua"
-              }`,
-            }}
             className={styles.picBox}
+            style={{
+              boxShadow:
+                colorMode === "light"
+                  ? "0 0 15px rgba(0, 0, 0, 0.1)"
+                  : `0 0 25px ${accentColor}`,
+            }}
           >
             <img
               src={edd}
-              alt="A photo of myself"
+              alt="A photo of Edmund, a Web Developer"
               className={styles.imageOne}
             />
           </div>
         </div>
+      </section>
 
-        <div data-aos="fade-left" className={styles.skillsSum}>
-          <div
-            style={{
-              backgroundColor: `${
-                colorMode === "light" ? "#e0e0e0" : "#1f3042"
-              }`,
-            }}
-            className={styles.skillsCard}
-          >
-            <span
-              style={{
-                color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-              }}
-            >
-              My skills...
-            </span>
-            <p
-              style={{
-                color: `${colorMode === "light" ? "#6a7286" : " #9aacc6"}`,
-              }}
-            >
-              I possess strong expertise in a range of programming languages and
-              technologies, including React, TypeScript, JavaScript, and
-              Python...{" "}
-              <Link className={styles.link} to={"skills"}>
-                <Button colorScheme="messenger"> Read more</Button>
-              </Link>{" "}
-            </p>{" "}
-          </div>
-          <img
-            src={skillspic}
-            alt="Your browser doesn't support this image"
-            className={styles.skillsSumPic}
-          />
-        </div>
+      <hr className={styles.sectionDivider} />
 
+      {/* About/Summary Sections */}
+      <section className={styles.infoGrid}>
         <div
-          style={{
-            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          }}
-          data-aos="fade-up-right"
-          className={styles.convinceBox}
+          className={styles.infoCard}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          data-aos="fade-up"
         >
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            {" "}
-            Let's Make Your Ideas a Reality:
-          </span>
-          <p
-            style={{
-              color: `${colorMode === "light" ? "#6a7286" : " #9aacc6"}`,
-            }}
-          >
-            I'm not just a developer; I'm a problem solver, a creative thinker,
-            and a dedicated professional. Your project's success is my success,
-            and I take pride in delivering web solutions that leave a lasting
-            impression. Join the many satisfied clients who have trusted me to
-            transform their digital aspirations into reality.Let's sail to
-            greatness together.
-          </p>
-
-          <img
-            src={reality}
-            alt="Your browser doesn't support this image"
-            className={styles.realityPic}
+          <FaCode
+            size={40}
+            className={styles.cardIcon}
+            style={{ color: iconColor }}
           />
-        </div>
-
-        <div
-          style={{
-            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          }}
-          data-aos="fade-up-left"
-          className={styles.achievementsBox}
-        >
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            Achievements and Certifications:
-          </span>
-          <p
-            style={{
-              color: `${colorMode === "light" ? "#6a7286" : " #9aacc6"}`,
-            }}
-          >
-            <strong>CodeWithMosh Certifications</strong>: Completed multiple
-            courses on CodeWithMosh, including Python, HTML & CSS, React and
-            Javascript. View Certificates.
+          <h2 style={{ color: primaryTextColor }}>My Skills</h2>
+          <p style={{ color: secondaryTextColor }}>
+            I excel in modern web technologies including **React, TypeScript,
+            JavaScript, and Python**. I'm committed to building scalable and
+            efficient solutions.
+            <Link to={"skills"} className={styles.readMoreLink}>
+              <Button
+                size="sm"
+                variant="outline"
+                colorScheme="messenger"
+                mt={3}
+                style={{ borderColor: accentColor, color: accentColor }}
+              >
+                Learn More
+              </Button>
+            </Link>
           </p>
         </div>
 
         <div
-          style={{
-            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          }}
-          className={styles.fastContactBox}
+          className={styles.infoCard}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            Contact me
-          </span>
-          <div className={styles.socialIcons}>
-            <Link target="_blank" to={"https://github.com/alagsedd"}>
-              <AiFillGithub className={styles.icon} size="25" />
-            </Link>
-
-            <Link
-              target="_blank"
-              to={"https://www.linkedin.com/in/alags-edd-b83b6128a/"}
-            >
-              <AiFillLinkedin className={styles.icon} size="25" />
-            </Link>
-
-            <Link target="_blank" to={"https://www.instagram.com/ed_alags/"}>
-              <BsInstagram className={styles.icon} size="25" />
-            </Link>
-
-            <Link target="_blank" to={"https://twitter.com/ed_alagss"}>
-              <RiTwitterXLine className={styles.icon} size="25" />
-            </Link>
-          </div>
+          <FaLightbulb
+            size={40}
+            className={styles.cardIcon}
+            style={{ color: iconColor }}
+          />
+          <h2 style={{ color: primaryTextColor }}>Let's Innovate</h2>
+          <p style={{ color: secondaryTextColor }}>
+            I'm a dedicated problem-solver and creative thinker. My goal is to
+            transform your digital aspirations into compelling realities. Let's
+            collaborate and achieve greatness.
+          </p>
         </div>
-      </main>
-    </>
+
+        <div
+          className={styles.infoCard}
+          style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <FaAward
+            size={40}
+            className={styles.cardIcon}
+            style={{ color: iconColor }}
+          />
+          <h2 style={{ color: primaryTextColor }}>Achievements</h2>
+          <p style={{ color: secondaryTextColor }}>
+            **CodeWithMosh Certifications**: Successfully completed multiple
+            advanced courses in Python, HTML & CSS, React, and JavaScript.
+            {/* Add a link to certificates here if available */}
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section
+        className={styles.contactSection}
+        style={{ backgroundColor: cardBackgroundColor, boxShadow: boxShadow }}
+        data-aos="zoom-in-up"
+      >
+        <h2 style={{ color: primaryTextColor }}>Connect With Me</h2>
+        <div className={styles.socialIcons}>
+          <Link target="_blank" to={"https://github.com/alagsedd"}>
+            <AiFillGithub
+              className={styles.icon}
+              size="35"
+              style={{ color: iconColor }}
+            />
+          </Link>
+          <Link
+            target="_blank"
+            to={"https://www.linkedin.com/in/alags-edd-b83b6128a/"}
+          >
+            <AiFillLinkedin
+              className={styles.icon}
+              size="35"
+              style={{ color: iconColor }}
+            />
+          </Link>
+          <Link target="_blank" to={"https://www.instagram.com/ed_alags/"}>
+            <BsInstagram
+              className={styles.icon}
+              size="35"
+              style={{ color: iconColor }}
+            />
+          </Link>
+          <Link target="_blank" to={"https://twitter.com/ed_alagss"}>
+            <RiTwitterXLine
+              className={styles.icon}
+              size="35"
+              style={{ color: iconColor }}
+            />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 };
 

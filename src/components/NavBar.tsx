@@ -1,150 +1,117 @@
 import styles from "../styles/NavBar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosCloseCircle } from "react-icons/io";
-import { FaHome } from "react-icons/fa";
-import { GiSkills } from "react-icons/gi";
-import { FaInfo } from "react-icons/fa6";
-import { GiSuitcase } from "react-icons/gi";
+import { FaHome, FaInfo } from "react-icons/fa";
+import { GiSkills, GiSuitcase } from "react-icons/gi";
 import { MdOutlineVerified } from "react-icons/md";
 import { useColorMode } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ColorModeSwitch from "../ChakraUI/ColorModeSwitch";
-import { IoIosHome } from "react-icons/io";
 
 const NavBar = () => {
   const [showDropMenu, setDropMenu] = useState(false);
-  const [selectedListItem, setSelectedListItem] = useState(-1);
   const { colorMode } = useColorMode();
+  const location = useLocation();
 
-  const listItems = [
-    { name: "Home", path: "/", icon: <FaHome className={styles.icon} /> },
-    {
-      name: "Skills",
-      path: "/skills",
-      icon: <GiSkills className={styles.icon} />,
-    },
-    {
-      name: "About me",
-      path: "/about",
-      icon: <FaHome className={styles.icon} />,
-    },
-    {
-      name: "Projects",
-      path: "/projects",
-      icon: <GiSuitcase className={styles.icon} />,
-    },
+  const navItems = [
+    { name: "Home", path: "/", icon: <FaHome /> },
+    { name: "Skills", path: "/skills", icon: <GiSkills /> },
+    { name: "About", path: "/about", icon: <FaInfo /> },
+    { name: "Projects", path: "/projects", icon: <GiSuitcase /> },
     {
       name: "Certifications",
       path: "/certifications",
-      icon: <MdOutlineVerified className={styles.icon} />,
+      icon: <MdOutlineVerified />,
     },
   ];
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (showDropMenu) setDropMenu(false);
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [showDropMenu]);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setDropMenu(false);
+  }, [location.pathname]);
+
   return (
-    <>
-      <nav
-        style={{
-          backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          color: `${colorMode === "light" ? "#6a7286" : "#fff"}`,
-        }}
-        className={styles.nav}
-      >
-        <div className={styles.brandNameBox}>
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            Alags
-          </span>
+    <header
+      className={`${styles.header} ${
+        colorMode === "dark" ? styles.dark : styles.light
+      }`}
+    >
+      <nav className={styles.nav}>
+        <div className={styles.logo}>
+          <Link to="/" className={styles.logoLink}>
+            <span>Alags</span>
+          </Link>
         </div>
 
-        <ul className={styles.horizontalUl}>
-          {listItems.map((item, index) => (
+        {/* Desktop Navigation */}
+        <ul className={styles.navList}>
+          {navItems.map((item) => (
             <li
-              className={
-                selectedListItem === index ? styles.selectedItem : undefined
-              }
-              key={index}
+              key={item.path}
+              className={location.pathname === item.path ? styles.active : ""}
             >
-              <Link
-                onClick={() => setSelectedListItem(index)}
-                className={styles.link}
-                to={item.path}
-              >
-                {item.icon}
-                {item.name}
+              <Link to={item.path} className={styles.navLink}>
+                <span className={styles.navIcon}>{item.icon}</span>
+                <span>{item.name}</span>
               </Link>
             </li>
           ))}
         </ul>
 
-        <div className={styles.menuBox}>
-          <Link to={"/"}>
-            <IoIosHome className={styles.homeIcon} size="25" />
-          </Link>
-          {showDropMenu ? (
-            <IoIosCloseCircle
-              className={styles.icon}
-              onClick={() => setDropMenu(false)}
-              size="25"
-            />
-          ) : (
-            <GiHamburgerMenu
-              onClick={() => setDropMenu(true)}
-              className={styles.icon}
-              size="25"
-            />
-          )}
+        {/* Mobile Menu Button */}
+        <div className={styles.mobileMenu}>
+          <button
+            className={styles.menuButton}
+            onClick={(e) => {
+              e.stopPropagation();
+              setDropMenu(!showDropMenu);
+            }}
+            aria-label="Toggle menu"
+          >
+            {showDropMenu ? (
+              <IoIosCloseCircle size={24} />
+            ) : (
+              <GiHamburgerMenu size={24} />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {showDropMenu && (
+          <div className={styles.dropdownMenu}>
+            <ul>
+              {navItems.map((item) => (
+                <li
+                  key={item.path}
+                  className={
+                    location.pathname === item.path ? styles.active : ""
+                  }
+                >
+                  <Link to={item.path} className={styles.dropdownLink}>
+                    <span className={styles.dropdownIcon}>{item.icon}</span>
+                    <span>{item.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className={styles.colorModeToggle}>
+          <ColorModeSwitch />
         </div>
       </nav>
-
-      {showDropMenu && (
-        <ul
-          style={{
-            color: `${colorMode === "light" ? " rgb(16, 67, 121)" : "#fff"}`,
-          }}
-          className={styles.verticalUl}
-        >
-          {/* <li>
-            <Link className={styles.link} to={"/"}>
-              <FaHome className={styles.icon} /> Home
-            </Link>
-          </li> */}
-          <li>
-            <Link className={styles.link} to={"/skills"}>
-              <GiSkills className={styles.icon} /> Skills
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.link} to={"/about"}>
-              <FaInfo className={styles.icon} /> About me
-            </Link>
-          </li>
-
-          {/* <li>
-            <Link className={styles.link} to={"/projects"}>
-              <GiSuitcase className={styles.icon} /> Projects
-            </Link>
-          </li> */}
-
-          <li>
-            <Link className={styles.link} to={"/projects"}>
-              Projects
-            </Link>
-          </li>
-
-          <li>
-            <Link className={styles.link} to={"/certifications"}>
-              <MdOutlineVerified className={styles.icon} /> Certifications
-            </Link>
-          </li>
-        </ul>
-      )}
-
-      <ColorModeSwitch />
-    </>
+    </header>
   );
 };
 

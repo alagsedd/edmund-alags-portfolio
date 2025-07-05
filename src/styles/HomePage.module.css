@@ -1,320 +1,316 @@
-.main {
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.devInfo {
-    border-radius: 10px;
-    background-color: #1f3042;
-    padding: 0.5rem;
-    height: auto;
-}
-.devInfo span {
-    color: aqua;
-    font-weight: 500;
-    font-size: 1.3rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+:root {
+  /* Define light mode colors */
+  --light-primary-text: #2c3e50;
+  --light-secondary-text: #7f8c8d;
+  --light-accent-color: #3498db;
+  --light-background-color: #f0f2f5; /* Changed: Slightly darker off-white */
+  --light-card-background: #ffffff;
+  --light-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.motherMotherPicBox {
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
+
+body[data-theme='dark'] {
+  --primary-text: #ecf0f1;
+  --secondary-text: #bdc3c7;
+  --accent-color: #00bcd4; /* Teal for dark mode */
+  --background-color: #1e2838; /* Changed: Deeper, slightly blue-tinted dark grey */
+  --card-background: #2c3e50;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.main {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem; /* Increased spacing between main sections */
+  min-height: 100vh;
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  display: flex;
+  flex-direction: column; /* Stacked on mobile */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 3rem;
+  text-align: center;
+}
+
+.heroContent {
+  flex: 1;
+  padding: 1rem;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); /* Subtle glow */
+  transition: color 0.3s ease;
+}
+
+.heroContent p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px; /* Constrain text width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projectsButton {
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectsButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profileImageContainer {
+  flex-shrink: 0;
+  position: relative;
+  width: 20rem; /* Fixed width for profile image container */
+  height: 20rem; /* Fixed height for profile image container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px; /* Slightly rounded rectangle */
+  overflow: hidden;
 }
 
 .picBox {
-    border-radius: 49% 51% 47% 53% / 61% 53% 47% 39%  ;
-    height: 17rem;
-    width: 17rem;
-    box-shadow: 0 0 10px aqua;
-    animation: bounce 2s infinite ease-in-out;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  animation: pulseLight 3s infinite ease-in-out; /* Adjusted animation for subtle light pulse */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-@keyframes bounce {
-    0% {
-        transform: translateY(10px);
-    }
-    20% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    0% {
-        transform: translateY(10px);
-    }
+
+@keyframes pulseLight {
+  0% {
+    transform: scale(1);
+    box-shadow: var(--box-shadow);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--accent-color); /* More pronounced accent glow */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: var(--box-shadow);
+  }
 }
 
 .imageOne {
-    border-radius: 49% 51% 47% 53% / 61% 53% 47% 39%  ;
-    height: 17rem;
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: grayscale(20%); /* Slight desaturation for modern look */
+  transition: filter 0.3s ease;
 }
-.skillsSum {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
+
+.imageOne:hover {
+  filter: grayscale(0%); /* Full color on hover */
 }
-.skillsCard span {
-    color: aqua;
-    font-weight: 500;
-    letter-spacing: 0.01rem;
+
+.sectionDivider {
+  width: 60%;
+  max-width: 800px;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+  transition: border-color 0.3s ease;
 }
-.skillsCard {
-    border-radius: 10px;
-     background-color: #1f3042;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+
+/* --- Info Grid (Skills, Innovate, Achievements) --- */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 2.5rem; /* Spacing between cards */
+  width: 100%;
+  max-width: 1200px;
 }
-.skillsSumPic {
-    width: 100%;
-    object-fit: cover;
-    height: 15rem;
+
+.infoCard {
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
-.convinceBox {
-     background-color: #1f3042;
-    border-radius: 10px;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- 
+
+.infoCard:hover {
+  transform: translateY(-8px); /* More pronounced lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
-.convinceBox span {
-    color: aqua;
-    font-weight: 500;
-    letter-spacing: 0.01rem;
-    font-size: 1.2rem;
+
+.cardIcon {
+  margin-bottom: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-.convinceBox p {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+
+.infoCard:hover .cardIcon {
+  transform: scale(1.1);
 }
-.realityPic {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
+
+.infoCard h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
-.achievementsBox {
-    border-radius: 10px;
-  background-color: #1f3042;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+
+.infoCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
-.achievementsBox span {
-    color: aqua;
-    font-weight: 500;
+
+.readMoreLink {
+  display: inline-block;
+  margin-top: 1rem;
 }
-.fastContactBox {
-    border-radius: 10px;
-    width: 15rem;
-    font-weight: 500;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  background-color: #1f3042;
+
+/* --- Contact Section --- */
+.contactSection {
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.fastContactBox span {
-    border-bottom: 1px solid #fff;
-    margin-bottom: 0.5rem;
+
+.contactSection h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
+
 .socialIcons {
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem; /* Spacing between icons */
 }
+
 .icon {
-    transition:  box-shadow 0.7s 0.3s;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
+
 .icon:hover {
-    box-shadow: 0 0 10px aqua;
-}
-.link {
-    color: yellow;
+  transform: translateY(-5px) scale(1.1);
+  color: var(--accent-color) !important; /* Force accent color on hover */
 }
 
-@media screen and (min-width: 600px) {
-    .devInfo {
-        width: 90%;
-    }
-    .devInfo span {
-        font-size: 1.7rem;
-    }
-    .skillsSum {
-        width: 90%;
-    }
-    .skillsSum span {
-        font-size: 1.7rem;
-    }
-    .skillsSumPic {
-        width: 60%;
-    }
-    .convinceBox {
-        width: 90%;
-    }
-    .convinceBox span {
-        font-size: 1.7rem;
-    }
-    .realityPic {
-        width: 60%;
-    }
-    .achievementsBox  span {
-        font-size: 1.7rem;
-    }
+/* --- Media Queries --- */
+
+/* Tablet & Medium Screens */
+@media screen and (min-width: 768px) {
+  .heroSection {
+    flex-direction: row; /* Horizontal layout for hero */
+    text-align: left;
+    gap: 5rem;
+  }
+
+  .heroContent {
+    max-width: 50%; /* Adjust content width */
+  }
+
+  .heroContent h1 {
+    font-size: 4rem;
+  }
+
+  .profileImageContainer {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr 1fr; /* Two columns for cards */
+  }
+
+  .contactSection {
+    padding: 3rem;
+  }
 }
-@media screen and (min-width: 900px) {
-   .main {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows:  auto auto auto;
-    place-items: center center;
-   }
-   .realityPic {
-    display: none;
-   }
-   .skillsSumPic {
-    display: none;
-   }
-   .devInfo {
-    grid-column: 1 / 3;
-    width: 23rem;
-   }
-   .devInfo p {
-    font-size: 1.1rem;
-   }
-   .motherMotherPicBox {
-    grid-column: 3 / -1;
-   }
-   .imageOne {
+
+/* Large Screens */
+@media screen and (min-width: 1024px) {
+  .heroSection {
+    padding: 2rem 0; /* Add vertical padding */
+  }
+
+  .heroContent {
+    padding-left: 0;
+  }
+
+  .heroContent h1 {
+    font-size: 5rem; /* Even larger heading */
+  }
+
+  .profileImageContainer {
     width: 30rem;
-    height: 33rem;
-   }
-   .picBox {
-    width: 30rem;
-    height: 33rem;
-   }
-   .skillsSum {
-    grid-row: 2 / 3;
-    grid-column: 1 / 3;
-    height: 10rem;
-   }
-   .convinceBox {
-    grid-column: 1 / 4;
-    grid-row: 3 / -1;
-   }
-   .fastContactBox {
-    grid-column: 3 / -1;
-    grid-row: 3 / -1;
-    margin-left: 15rem;
-   }
-   
-   .achievementsBox {
-    grid-column: 3 / -1;
-    height: 10rem;
-    width: 30rem;
-   }
-   .achievementsBox span {
-    font-size: 1.2rem;
-   }
-   .skillsSum span {
-    font-size: 1.2rem;
-   }
-   .convinceBox span {
-    font-size: 1.2rem;
-   }
-   .convinceBox p {
+    height: 30rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for cards */
+  }
+
+  .contactSection h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra Large Screens */
+@media screen and (min-width: 1440px) {
+  .main {
+    padding: 4rem 2rem;
+    gap: 5rem;
+  }
+
+  .heroSection {
+    max-width: 1400px; /* Allow wider hero on very large screens */
+  }
+  .heroContent h1 {
+    font-size: 5.5rem;
+  }
+  .heroContent p {
+    font-size: 1.4rem;
+  }
+
+  .profileImageContainer {
+    width: 35rem;
+    height: 35rem;
+  }
+
+  .infoCard {
+    padding: 2.5rem;
+  }
+
+  .infoCard h2 {
+    font-size: 2rem;
+  }
+
+  .infoCard p {
     font-size: 1.1rem;
-   }
-
-   .skillsSum p {
-    font-size: 1.1rem;
-   }
-}
-
-@media screen and (min-width: 1000px) {
-    .main {
-        padding: 0 2rem;
-    }
-    .devInfo {
-        width: 27rem;
-        height: 15rem;
-    }
-    .achievementsBox {
-        width: 30rem;
-        height: 10rem;
-    }
-
-    .skillsCard {
-        height: 10rem;
-        width: 30rem;
-    }
-    .convinceBox {
-        grid-column: 1  /3;
-    }
-    .fastContactBox {
-        grid-column: 2 / -1;
-    }
-}
-
-@media screen and (min-width: 1100px) {
-    .main {
-        padding: 0 0rem;
-    }
-    .devInfo span {
-        height: 40rem;
-        font-size: 2rem;
-    }
-    .skillsCard {
-        width: 34rem;
-    }
-    .devInfo p {
-        font-size: 1.2rem;
-        height: 40rem;
-    }
-    .devInfo  {
-        height: 20rem;
-        width: 30rem;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .devInfo {
-        width: 40rem;
-        padding: 1.5rem;
-    }
-    .skillsCard {
-        width: 40rem;
-    }
-    .skillsSum p {
-        font-size: 1.2rem;
-    }
-    .convinceBox {
-        width: 40rem;
-    }
-    .achievementsBox p {
-        font-size: 1.2rem;
-    }
-    .convinceBox p {
-        font-size: 1.2rem;
-    }
-    .main {
-        margin: 0 0 ;
-        padding: 0 0 ;
-        column-gap: 1.6rem;
-    }
-    .motherMotherPicBox {
-        margin-right: 3rem;
-    }
+  }
 }

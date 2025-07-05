@@ -25,23 +25,25 @@ const Projects = () => {
   const { colorMode } = useColorMode();
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out-quad",
+    });
   }, []);
 
   const projects = [
     {
       id: 1,
-      title: " 1.Game App Project:",
+      title: "1. Game App Project",
       details:
-        "Explore a world of interactive gaming with my latest project, the Game App! This application represents a culmination of my     expertise in web development, utilizing technologies such as React, TypeScript, and RESTful API integration to create an immersive gaming experience.",
+        "Explore a world of interactive gaming with my latest project, the Game App! This application represents a culmination of my expertise in web development, utilizing technologies such as React, TypeScript, and RESTful API integration to create an immersive gaming experience.",
       video: v1,
       linkToGame: "https://game-discovery-app-gamma.vercel.app/",
       poster: gameposter,
     },
-
     {
       id: 2,
-      title: "2.Move App Project:",
+      title: "2. Movie App Project",
       details:
         "The Movie App project showcases my technical skills and dedication to creating captivating applications for users. It offers a seamless movie-watching experience, whether you're a cinephile looking for the latest releases or a developer interested in best practices. This project highlights my commitment to innovation and excellence.",
       video: v2,
@@ -50,132 +52,124 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "3.Advice Generato App Project:",
+      title: "3. Advice Generator App Project",
       details:
-        "Introducing the Advice App, a testament to my passion for web development and my commitment to creating interactive and  user-centric applications. This project is a result of combining RESTful API integration, responsive design, and the use of cutting-edge libraries to provide valuable insights and guidance in an accessible and engaging manner.",
+        "Introducing the Advice App, a testament to my passion for web development and my commitment to creating interactive and user-centric applications. This project is a result of combining RESTful API integration, responsive design, and the use of cutting-edge libraries to provide valuable insights and guidance in an accessible and engaging manner.",
       video: v3,
       linkToGame: "https://advice-generator-app-brown-ten.vercel.app/",
       poster: adviceposter,
     },
     {
       id: 4,
-      title: "4.Sign up form",
+      title: "4. Sign Up Form",
       details:
-        "  In the realm of web development, creating an intuitive and   user-friendly sign-up form is a quintessential skill. My Responsive Sign-Up Form project is a testament to my proficiency in harnessing the power of React hooks to craft an engaging and adaptable form that caters to both desktop and mobile users.",
+        "In the realm of web development, creating an intuitive and user-friendly sign-up form is a quintessential skill. My Responsive Sign-Up Form project is a testament to my proficiency in harnessing the power of React hooks to craft an engaging and adaptable form that caters to both desktop and mobile users.",
       video: v4,
       linkToGame: "https://newsletter-signup-form-orcin.vercel.app/",
       poster: signupPoster,
     },
     {
       id: 5,
-      title: "4.Food app",
-      details: "  This is a responsive food web app i created with modern.",
+      title: "5. Food App",
+      details:
+        "This is a responsive food web app I created with modern technologies.",
       video: foodapp,
       linkToGame: "https://food-app-rosy-five.vercel.app/",
       poster: foodposter,
     },
     {
       id: 6,
-      title: "Modern Chat Application with Firebase Authentication",
+      title: "6. Modern Chat Application",
       details:
-        "The Modern Chat Application is a cutting-edge, real-time messaging platform designed to foster seamless communication and connectivity among users. Utilizing Firebase Authentication, this application ensures a secure and streamlined sign-in process, prioritizing user privacy and data protection. Key Features: Firebase Authentication: Robust user authentication powered by Firebase, offering secure login methods like Google and GitHub sign-ins. Real-time Messaging: Instantaneous communication allowing users to exchange messages in real-time, facilitating efficient and immediate conversations.User-Friendly Interface: Intuitive and sleek user interface for effortless navigation, ensuring an engaging and enjoyable chatting experience.Personalization: Customizable user profiles, allowing individuals to add unique usernames and profile pictures for personalization.",
+        "The Modern Chat Application is a cutting-edge, real-time messaging platform designed to foster seamless communication and connectivity among users. Utilizing Firebase Authentication, this application ensures a secure and streamlined sign-in process, prioritizing user privacy and data protection.",
       video: v5,
       linkToGame: "https://chat-app-murex-one.vercel.app/",
       poster: chatposter,
     },
     {
       id: 7,
-      title: "Sneaker sales",
-      details: "A responsive sneaker app",
+      title: "7. Sneaker E-commerce",
+      details:
+        "A responsive sneaker app with modern design and smooth user experience.",
       video: v6,
       linkToGame: "https://sneaker-ecommerce-app-sooty.vercel.app/",
       poster: sneakerposter,
     },
     {
       id: 8,
-      title: "Bike e-commerce app",
+      title: "8. Bike E-commerce App",
       details:
-        "This is a passion project on two wheels: a fully responsive bikes ecommerce app built with React and secured by Firebase. Glide through curated bikes, refine your search with powerful filters, and checkout with a click, all wrapped in a sleek, modern interface. Secure logins and personalized recommendations put you in control, while the extensive bike database delivers your perfect match.",
+        "This is a passion project on two wheels: a fully responsive bikes ecommerce app built with React and secured by Firebase. Glide through curated bikes, refine your search with powerful filters, and checkout with a click, all wrapped in a sleek, modern interface.",
       video: v7,
       linkToGame: "https://alags-bikes.vercel.app/",
       poster: bikesAppPoster,
     },
     {
       id: 9,
-      title: "Medical lab app",
+      title: "9. Medical Lab App",
       details:
-        "Presenting an agile web application leveraging Firebase's robust backend, enabling streamlined user authentication, hassle-free signup/login experiences, and secure data handling. This app ensures seamless registration and login functionalities, employing Firebase's reliable authentication mechanisms. Beyond user access, it showcases controlled admin privileges, allowing selective access for enhanced security and specific admin-oriented functionalities. With a sleek interface and efficient Firebase integration, this app sets the standard for modern, secure, and accessible authentication experiences.",
+        "Presenting an agile web application leveraging Firebase's robust backend, enabling streamlined user authentication, hassle-free signup/login experiences, and secure data handling. This app ensures seamless registration and login functionalities.",
       video: v7,
       linkToGame: "https://alagpulinsa-lab.vercel.app/",
       poster: bikesAppPoster,
     },
   ];
+
   return (
-    <>
-      <div className={styles.parent}>
-        <h1 className={styles.headerOne}>
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
-          >
-            Projects I have worked on
-          </span>
+    <div
+      className={`${styles.portfolio} ${
+        colorMode === "dark" ? styles.dark : styles.light
+      }`}
+    >
+      <div className={styles.hero}>
+        <h1 className={styles.title} data-aos="fade-down">
+          My <span className={styles.highlight}>Projects</span>
         </h1>
-
-        <div
-          style={{
-            backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-          }}
-          data-aos="fade-down-right"
-          className={styles.introText}
+        <p
+          className={styles.subtitle}
+          data-aos="fade-down"
+          data-aos-delay="100"
         >
+          Crafting digital experiences that inspire and engage
+        </p>
+      </div>
+
+      <div className={styles.intro} data-aos="fade-up">
+        <div className={styles.introContent}>
           <p>
-            Welcome to my portfolio of projects! Here, I'm excited to share with
-            you some of the work I've done and the projects I've been involved
-            in. As a self-taught developer with a passion for creating
-            meaningful and impactful solutions, I've had the opportunity to work
-            on a variety of projects that showcase my skills and experiences.{" "}
-            <br></br>
-            Each project represents a unique challenge and an opportunity for
-            learning and growth. From web development to mobile apps and more,
-            I've had the privilege of working on projects that have honed my
-            skills and allowed me to bring ideas to life. I'm a firm believer in
-            the power of technology to make a difference, and I'm dedicated to
-            creating solutions that are not only functional but also
-            user-friendly and visually appealing.
-            <br /> I'm excited to take you on a journey through these projects,
-            and I hope you find them inspiring and informative. Whether you're a
-            fellow developer, a potential client, or simply someone interested
-            in the world of tech, I invite you to explore these projects and get
-            a glimpse of what I can bring to the table.
+            Welcome to my creative playground. Each project represents countless
+            hours of passion, problem-solving, and pixel-perfect attention to
+            detail. From sleek e-commerce solutions to immersive web apps, I
+            blend cutting-edge technology with elegant design to deliver
+            exceptional user experiences.
           </p>
-        </div>
-
-        <h3 data-aos="flip-up" className={styles.headerTwo}>
-          <span
-            style={{
-              color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-            }}
+          <div
+            className={styles.scrollHint}
+            data-aos="fade-up"
+            data-aos-delay="300"
           >
-            Hope you like them!
-          </span>
-        </h3>
-
-        <div data-aos="fade-down-left" className={styles.projectsBox}>
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              linkToGame={project.linkToGame}
-              poster={project.poster}
-              title={project.title}
-              video={project.video}
-              details={project.details}
-            />
-          ))}
+            <span>Explore my work</span>
+            <div className={styles.scrollArrow}></div>
+          </div>
         </div>
       </div>
-    </>
+
+      <div className={styles.projectsGrid}>
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            colorMode={colorMode}
+          />
+        ))}
+      </div>
+
+      <div className={styles.ctaSection} data-aos="fade-up">
+        <h2>Ready to create something amazing together?</h2>
+        <button className={styles.ctaButton}>Let's Connect</button>
+      </div>
+    </div>
   );
 };
 

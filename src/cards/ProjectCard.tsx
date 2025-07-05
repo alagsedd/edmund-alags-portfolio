@@ -1,48 +1,66 @@
-import { Link } from "react-router-dom";
 import styles from "../styles/ProjectCard.module.css";
-import ExpandableText from "../components/ExpandableText";
+import { useState } from "react";
 
-import { useColorMode } from "@chakra-ui/react";
-
-interface Props {
+interface Project {
+  id: number;
   title: string;
-  video: string;
-  poster: string;
   details: string;
+  video: string;
   linkToGame: string;
+  poster: string;
 }
-const ProjectCard = ({ details, title, video, poster, linkToGame }: Props) => {
-  const { colorMode } = useColorMode();
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  colorMode: "light" | "dark";
+}
+
+const ProjectCard = ({ project, index, colorMode }: ProjectCardProps) => {
+  const [isHovered, setHovered] = useState(false);
 
   return (
-    <div className={styles.card}>
-      <video
-        poster={poster}
-        controls
-        src={video}
-        className={styles.video}
-      ></video>
-
-      <div className={styles.info}>
-        <span
-          style={{
-            color: `${colorMode === "light" ? "#49719c" : " #fff"}`,
-          }}
-          className={styles.title}
-        >
-          {title}
-        </span>
-
-        <div>
-          <ExpandableText gameDetails={details} />
+    <div
+      className={`${styles.card} ${
+        colorMode === "dark" ? styles.dark : styles.light
+      }`}
+      data-aos="fade-up"
+      data-aos-delay={index * 100}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className={styles.mediaContainer}>
+        {isHovered ? (
+          <video
+            src={project.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.media}
+          />
+        ) : (
+          <img
+            src={project.poster}
+            alt={project.title}
+            className={styles.media}
+          />
+        )}
+        <div className={styles.overlay}>
+          <a
+            href={project.linkToGame}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.viewButton}
+          >
+            View Project
+          </a>
         </div>
+      </div>
 
-        <p>
-          You can preview the site here{" "}
-          <Link className={styles.link} to={linkToGame} target="_blank">
-            here
-          </Link>
-        </p>
+      <div className={styles.content}>
+        <h3 className={styles.projectTitle}>{project.title}</h3>
+        <p className={styles.projectDescription}>{project.details}</p>
       </div>
     </div>
   );

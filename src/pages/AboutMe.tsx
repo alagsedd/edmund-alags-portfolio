@@ -9,177 +9,150 @@ import { useColorMode } from "@chakra-ui/react";
 
 const AboutMe = () => {
   const { colorMode } = useColorMode();
+
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+    });
   }, []);
 
-  const spanColor = colorMode === "light" ? "#0d5f79" : "#fff";
-  const backgroundColor = colorMode === "light" ? "#fefeff" : "#1a212d";
-  return (
-    <>
-      <div
-        style={{
-          backgroundColor: `${colorMode === "light" ? "#e0e0e0" : "#1f3042"}`,
-        }}
-        className={styles.parent}
-      >
-        <div data-aos="fade-right" className={styles.partOne}>
-          <h1 className={styles.headerOne}>
-            <span style={{ color: spanColor }}>About me</span>
+return (
+    <div
+      className={`${styles.container} ${
+        colorMode === "dark" ? styles.dark : ""
+      }`}
+    >
+      {/* Hero Section */}
+      <section className={styles.heroSection} data-aos="fade-up">
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>
+            About <span className={styles.highlight}>Me</span>
           </h1>
-          <p
-            style={{
-              backgroundColor: backgroundColor,
-              padding: "0.3rem",
-            }}
-            className={styles.p1}
-          >
+          <div className={styles.profileWrapper}>
+            <img
+              src={edd2}
+              alt="Edmund Alagpulinsa"
+              className={styles.profileImage}
+            />
+          </div>
+          <p className={styles.heroText}>
             My name is{" "}
-            <span style={{ color: spanColor }} className={styles.color}>
-              Edmund Alagpulinsa
-            </span>{" "}
-            and i'm a dedicated and self driven web developer with 3 years of
+            <span className={styles.highlight}>Edmund Alagpulinsa</span> and I'm
+            a dedicated and self-driven web developer with 3 years of
             experience.
           </p>
-          <img
-            src={edd2}
-            alt="Your browser doesn't support this image"
-            className={styles.image}
-          />
-          <p style={{ backgroundColor: backgroundColor }} className={styles.p1}>
-            {" "}
-            My passion for <span className={styles.color}>
-              web development
-            </span>{" "}
-            has led me to work on a diverse range of projects from simple login
-            forms to complex game-discovery-apps, movie-apps and many more
-            projects.
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className={styles.section} data-aos="fade-up">
+        <div className={styles.sectionContent}>
+          <p className={styles.sectionText}>
+            My passion for{" "}
+            <span className={styles.highlight}>web development</span> has led me
+            to work on a diverse range of projects from simple login forms to
+            complex game-discovery-apps, movie-apps and many more projects.
           </p>
         </div>
+      </section>
 
-        <div data-aos="fade-left" className={styles.partTwo}>
-          <h2 className={styles.headerTwo}>
-            <span style={{ color: spanColor }}>My expertise includes</span>
-          </h2>
-          <ul
-            style={{ backgroundColor: backgroundColor }}
-            className={styles.ul}
-          >
-            <li>
-              **
-              <span style={{ color: spanColor }} className={styles.color}>
-                React.js
-              </span>
-              **: I am highly skilled in developing dynamic and interactive web
-              applications using React.js. I have experience in creating
-              reusable components, state management, and optimizing performance
-              to deliver exceptional user experiences.
-            </li>
-            <li>
-              **
-              <span style={{ color: spanColor }} className={styles.color}>
-                JavaScript
-              </span>
-              **: I have a deep understanding of JavaScript and its ecosystem. I
-              can write clean and efficient code, work with asynchronous
-              operations, and leverage modern ES6+ features to build robust web
-              applications.
-            </li>
-            <li>
-              **
-              <span style={{ color: spanColor }} className={styles.color}>
-                HTML & CSS
-              </span>
-              **: I am proficient in crafting well-structured and semantically
-              correct HTML documents. I can style web applications using CSS to
-              create visually appealing and responsive user interfaces. I ensure
+      {/* Expertise Section */}
+      <section className={styles.sectionAlt} data-aos="fade-up">
+        <h2 className={styles.sectionTitle}>My Expertise</h2>
+        <div className={styles.expertiseGrid}>
+          <div className={styles.expertiseCard}>
+            <h3 className={styles.expertiseTitle}>React.js</h3>
+            <p className={styles.expertiseText}>
+              Highly skilled in developing dynamic and interactive web
+              applications using React.js. Experienced in creating reusable
+              components, state management, and optimizing performance.
+            </p>
+          </div>
+          <div className={styles.expertiseCard}>
+            <h3 className={styles.expertiseTitle}>JavaScript</h3>
+            <p className={styles.expertiseText}>
+              Deep understanding of JavaScript and its ecosystem. I write clean,
+              efficient code, work with asynchronous operations, and leverage
+              modern ES6+ features to build robust applications.
+            </p>
+          </div>
+          <div className={styles.expertiseCard}>
+            <h3 className={styles.expertiseTitle}>HTML & CSS</h3>
+            <p className={styles.expertiseText}>
+              Proficient in crafting well-structured HTML and styling with CSS
+              to create visually appealing, responsive interfaces with
               cross-browser compatibility and adherence to web standards.
-            </li>
-            <li>
-              **
-              <span style={{ color: spanColor }} className={styles.color}>
-                Python
-              </span>
-              **: I have a strong background in Python, enabling me to build
-              versatile applications, automate tasks, and work with data
-              analysis and machine learning libraries. I write clean and
-              maintainable Python code that follows best practices.
-            </li>
-          </ul>
-          <p style={{ backgroundColor: backgroundColor }} className={styles.p1}>
-            I am{" "}
-            <span style={{ color: spanColor }} className={styles.color}>
-              committed
-            </span>{" "}
-            to staying at the forefront of [Your Industry] trends and
-            technologies. As a [Your Profession], I am constantly seeking
-            opportunities for growth and innovation.
-          </p>
+            </p>
+          </div>
+          <div className={styles.expertiseCard}>
+            <h3 className={styles.expertiseTitle}>Python</h3>
+            <p className={styles.expertiseText}>
+              Strong background in Python for building versatile applications,
+              automating tasks, and working with data analysis and machine
+              learning libraries. I follow best practices for clean,
+              maintainable code.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div data-aos="fade-up-right" className={styles.partThree}>
-          <h3 className={styles.headerTwo}>
-            <span style={{ color: spanColor }}>Why Work with Me?</span>
-          </h3>
+      {/* Why Work With Me */}
+      <section className={styles.section} data-aos="fade-up">
+        <h2 className={styles.sectionTitle}>Why Work With Me?</h2>
+        <div className={styles.trustContent}>
           <img
             src={trust}
-            alt="Your browser doesn't support this image"
-            className={styles.image}
+            alt="Trust illustration"
+            className={styles.trustImage}
           />
-          <ul
-            style={{ backgroundColor: backgroundColor }}
-            className={styles.ul}
-          >
-            <li>
-              {" "}
-              I am dedicated to delivering high-quality results on time and
-              within budget.
+          <ul className={styles.benefitsList}>
+            <li className={styles.benefitItem}>
+              Dedicated to delivering high-quality results on time and within
+              budget
             </li>
-            <li>
-              {" "}
-              I have a track record of collaborating effectively with
-              cross-functional teams.
+            <li className={styles.benefitItem}>
+              Track record of collaborating effectively with cross-functional
+              teams
             </li>
-            <li> I thrive in dynamic and challenging environments.</li>
-            <li>I can work under any kind of pressure.</li>
+            <li className={styles.benefitItem}>
+              Thrive in dynamic and challenging environments
+            </li>
+            <li className={styles.benefitItem}>
+              Can work effectively under pressure
+            </li>
           </ul>
         </div>
+      </section>
 
-        <div data-aos="flip-left" className={styles.partFour}>
-          <h3 className={styles.headerTwo}>
-            <span style={{ color: spanColor }}>Get in touch</span>
-          </h3>
-          <p style={{ backgroundColor: backgroundColor }} className={styles.p1}>
-            If you're interested in collaborating on [Type of Projects or
-            Goals], I'd love to connect and explore how I can contribute to your
-            success. Let's start a conversation.
-          </p>
-          <p style={{ backgroundColor: backgroundColor }} className={styles.p1}>
-            You can reach me{" "}
-            <span style={{ color: spanColor }} className={styles.color}>
-              alagsedd@gmail.com
-            </span>{" "}
-            or connect with me on{" "}
-            <Link
-              target="_blank"
-              to={"https://www.linkedin.com/in/alags-edd-b83b6128a/"}
-            >
-              linkedin
-            </Link>
-            .
-          </p>
-          <p
-            style={{ backgroundColor: backgroundColor }}
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            className={styles.p1}
+      {/* Contact Section */}
+      <section className={styles.contactSection} data-aos="fade-up">
+        <h2 className={styles.sectionTitle}>Get In Touch</h2>
+        <p className={styles.contactText}>
+          If you're interested in collaborating on projects, I'd love to connect
+          and explore how I can contribute to your success. Let's start a
+          conversation.
+        </p>
+        <p className={styles.contactText}>
+          You can reach me at{" "}
+          <span className={styles.highlight}>alagsedd@gmail.com</span>
+          or connect with me on{" "}
+          <Link
+            to="https://www.linkedin.com/in/alags-edd-b83b6128a/"
+            target="_blank"
+            className={styles.contactLink}
           >
-            Thank you for considering me as a potential partner or team member.
-            I look forward to the opportunity to work together.
-          </p>
-        </div>
-      </div>
-    </>
+            LinkedIn
+          </Link>
+          .
+        </p>
+        <p className={styles.contactClosing}>
+          Thank you for considering me as a potential partner or team member. I
+          look forward to the opportunity to work together.
+        </p>
+      </section>
+    </div>
   );
 };
 
