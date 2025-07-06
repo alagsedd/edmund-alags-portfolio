@@ -6,6 +6,7 @@ import v4 from "../assets/videos/news finished.mp4";
 import v5 from "../assets/videos/chat demo.mp4";
 import v6 from "../assets/videos/sneaker vid.mp4";
 import v7 from "../assets/videos/bike-video.mp4";
+import v8 from "../assets/videos/heritage school app recording .mp4";
 import gameposter from "../assets/images/game poster.png";
 import chatposter from "../assets/images/chat pic.avif";
 import bikesAppPoster from "../assets/images/bikes-app-poster.png";
@@ -15,6 +16,7 @@ import foodapp from "../assets/videos/food app demo.mp4";
 import adviceposter from "../assets/images/advice-poster.jpg";
 import signupPoster from "../assets/images/sign-up-poster.jpg";
 import sneakerposter from "../assets/images/sneaker poster .jpeg";
+import schoolAppPoster from "../assets/images/heritage app video poster.png";
 import ProjectCard from "../cards/ProjectCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -34,6 +36,16 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "Heritage School App",
+      details:
+        "This project is a beautifully designed web application for Heritage Christian University College. It showcases the university's unique programs, leadership, and values with a modern, responsive layout. Built using React, TypeScript, and modular CSS, it includes features such as dynamic routing, reusable components, and sleek visual sections like President’s Message, Study Areas, and Affiliates. It reflects both branding and functionality in one clean experience.",
+      video: v8, // replace this with your actual video import (if any)
+      linkToGame: "https://heritage-school-app.vercel.app/", // replace with your actual deployed link
+      poster: schoolAppPoster, // replace with actual image import (e.g., import heritagePoster from "../assets/heritage_poster.jpg")
+    },
+
+    {
+      id: 2,
       title: "1. Game App Project",
       details:
         "Explore a world of interactive gaming with my latest project, the Game App! This application represents a culmination of my expertise in web development, utilizing technologies such as React, TypeScript, and RESTful API integration to create an immersive gaming experience.",
@@ -42,7 +54,7 @@ const Projects = () => {
       poster: gameposter,
     },
     {
-      id: 2,
+      id: 3,
       title: "2. Movie App Project",
       details:
         "The Movie App project showcases my technical skills and dedication to creating captivating applications for users. It offers a seamless movie-watching experience, whether you're a cinephile looking for the latest releases or a developer interested in best practices. This project highlights my commitment to innovation and excellence.",
@@ -51,7 +63,7 @@ const Projects = () => {
       poster: movieposter,
     },
     {
-      id: 3,
+      id: 4,
       title: "3. Advice Generator App Project",
       details:
         "Introducing the Advice App, a testament to my passion for web development and my commitment to creating interactive and user-centric applications. This project is a result of combining RESTful API integration, responsive design, and the use of cutting-edge libraries to provide valuable insights and guidance in an accessible and engaging manner.",
@@ -60,7 +72,7 @@ const Projects = () => {
       poster: adviceposter,
     },
     {
-      id: 4,
+      id: 5,
       title: "4. Sign Up Form",
       details:
         "In the realm of web development, creating an intuitive and user-friendly sign-up form is a quintessential skill. My Responsive Sign-Up Form project is a testament to my proficiency in harnessing the power of React hooks to craft an engaging and adaptable form that caters to both desktop and mobile users.",
@@ -69,7 +81,7 @@ const Projects = () => {
       poster: signupPoster,
     },
     {
-      id: 5,
+      id: 6,
       title: "5. Food App",
       details:
         "This is a responsive food web app I created with modern technologies.",
@@ -78,7 +90,7 @@ const Projects = () => {
       poster: foodposter,
     },
     {
-      id: 6,
+      id: 7,
       title: "6. Modern Chat Application",
       details:
         "The Modern Chat Application is a cutting-edge, real-time messaging platform designed to foster seamless communication and connectivity among users. Utilizing Firebase Authentication, this application ensures a secure and streamlined sign-in process, prioritizing user privacy and data protection.",
@@ -87,7 +99,7 @@ const Projects = () => {
       poster: chatposter,
     },
     {
-      id: 7,
+      id: 8,
       title: "7. Sneaker E-commerce",
       details:
         "A responsive sneaker app with modern design and smooth user experience.",
@@ -96,7 +108,7 @@ const Projects = () => {
       poster: sneakerposter,
     },
     {
-      id: 8,
+      id: 9,
       title: "8. Bike E-commerce App",
       details:
         "This is a passion project on two wheels: a fully responsive bikes ecommerce app built with React and secured by Firebase. Glide through curated bikes, refine your search with powerful filters, and checkout with a click, all wrapped in a sleek, modern interface.",
@@ -105,7 +117,7 @@ const Projects = () => {
       poster: bikesAppPoster,
     },
     {
-      id: 9,
+      id: 10,
       title: "9. Medical Lab App",
       details:
         "Presenting an agile web application leveraging Firebase's robust backend, enabling streamlined user authentication, hassle-free signup/login experiences, and secure data handling. This app ensures seamless registration and login functionalities.",
